@@ -1,0 +1,9 @@
+Package: featuR
+Title: Tools for Dealing with FEATURE Data in R
+Version: 0.0.1.0
+Author: Arthur Vigil
+Authors@R: person("Arthur", "Vigil", email = "ahvigil@mail.sfsu.edu", role = c("aut", "cre"))
+Description: Tools for dealing with FEATURE data in R
+Depends: R (>= 3.2.2)
+License: What license is it under?
+LazyData: true
