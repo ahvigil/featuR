@@ -15,8 +15,8 @@ download.model <- function(model, base_directory=getwd()){
                   quiet=T)
 
     cat("Merging positive and negative .ff.gz files into compressed arff\n")
-    .C("ff2arff", model)
-    cat(sprintf("Model successfully stored in %s.arff.gz\n", model))
+    .C("ff2arff", file.path(base_directory, model))
+    cat(sprintf("Model successfully stored in %s.arff.gz\n", file.path(base_directory, model)))
 
     invisible()
 }
