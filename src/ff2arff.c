@@ -86,7 +86,7 @@ void ff2arff(char** model){
         }
     }
 
-    gzputs(out, "@ATTRIBUTE class {1,-1}\n\n@DATA\n");
+    gzputs(out, "@ATTRIBUTE class {pos,neg}\n\n@DATA\n");
 
     while(buffer[0]=='#'){
         gzgets(pIn, buffer, CHAR_BUFFER_SIZE);
@@ -99,7 +99,7 @@ void ff2arff(char** model){
             gzputs(out, strtok(NULL, "\t"));
             gzputs(out, ",");
         }
-        gzputs(out, "1\n");
+        gzputs(out, "pos\n");
     } while( gzgets(pIn, buffer, CHAR_BUFFER_SIZE ));
     gzclose(pIn);
 
@@ -122,7 +122,7 @@ void ff2arff(char** model){
             gzputs(out, strtok(NULL, "\t"));
             gzputs(out, ",");
         }
-        gzputs(out, "-1\n");
+        gzputs(out, "neg\n");
     } while( gzgets(nIn, buffer, CHAR_BUFFER_SIZE ));
 
     gzclose(nIn);
