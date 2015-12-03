@@ -42,9 +42,9 @@ char **getprops(gzFile file, char buffer[]){
 
 void ff2arff(char** model){
     // initialize filename char arrays
-    char pos[40];
-    char neg[40];
-    char arff[40];
+    char pos[256];
+    char neg[256];
+    char arff[256];
     char buffer[CHAR_BUFFER_SIZE];
     int i=0;
     strcpy(pos, *model);
