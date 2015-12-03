@@ -5,8 +5,18 @@ download.model <- function(model, base_directory=getwd()){
 
     if(!file.exists(base_directory)) dir.create(base_directory, recursive = TRUE)
 
-    download.file(paste(base_url, model, pos_file, sep="/"),
-                  file.path(base_directory, pos_file))
-    download.file(paste(base_url, model, neg_file, sep="/"),
-                  file.path(base_directory, neg_file))
+    cat("\nDownloading positive feature file...\n")
+    download.file(file.path(base_url, model, pos_file),
+                  file.path(base_directory, pos_file),
+                  quiet=T)
+    cat("Downloading negative feature file...\n")
+    download.file(file.path(base_url, model, neg_file),
+                  file.path(base_directory, neg_file),
+                  quiet=T)
+
+    cat("Merging positive and negative .ff.gz files into compressed arff\n")
+    .C("ff2arff", model)
+    cat(sprintf("Model successfully stored in %s.arff.gz\n", model))
+
+    invisible()
 }
