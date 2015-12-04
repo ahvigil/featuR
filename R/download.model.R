@@ -5,7 +5,7 @@ download.model <- function(model, base_directory=getwd()){
 
     if(!file.exists(base_directory)) dir.create(base_directory, recursive = TRUE)
 
-    cat("\nDownloading positive feature file...\n")
+    cat("Downloading positive feature file...\n")
     download.file(file.path(base_url, model, pos_file),
                   file.path(base_directory, pos_file),
                   quiet=T)
